@@ -23,3 +23,10 @@ if (var3 > threshold):
   print("Greater than")
 else:
   print("Not greater")
+
+items = ["dog", "cat", "lizard"]
+for item in items: # do stuff, like a js loop
+  print(item)
+
+for i in range(5): # range(0,10), range(0,15,3) --> increment by 3
+  print("hi")
