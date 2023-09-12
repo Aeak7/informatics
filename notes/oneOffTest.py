@@ -1,15 +1,15 @@
-x = 10
-y = 3
-z = 2
+evenValue = False
+x = 0
+sum = 0
 
-output = 0
-if (x >= 3):
-  output = 5
-elif (y < 4) and (z < 3):
-  output = 6
-elif (z >= 3):
-  output = 7
-  if (y < 4):
-    output = 8
+while (not evenValue) and (x < 100):
+  x = int(input())
+  if (x % 2 == 0):   # what does the operator "%" do?
+    evenValue = True
+    sum = sum + x
+  else:
+    sum = sum - x
 
-print(output)
+print(sum)
+   # end if
+# end while
