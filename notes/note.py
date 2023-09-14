@@ -30,3 +30,15 @@ for item in items: # do stuff, like a js loop
 
 for i in range(5): # range(0,10), range(0,15,3) --> increment by 3
   print("hi")
+
+# arrays
+x = items[0]
+items[0] = "bug"
+x = len(items)
+items.append("elephant")
+items.pop(0)
+items.remove("cat")
+
+# image[row][column]
+# x==y
+# (x>y)
