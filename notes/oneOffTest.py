@@ -1,15 +1,10 @@
-evenValue = False
-x = 0
-sum = 0
+myList = [1, 3, -5, 6, 19, 10]
+something = myList[0]
+count = 1
 
-while (not evenValue) and (x < 100):
-  x = int(input())
-  if (x % 2 == 0):   # what does the operator "%" do?
-    evenValue = True
-    sum = sum + x
-  else:
-    sum = sum - x
+while (count < len(myList)):
+  if (myList[count] > something):
+    something = myList[count]
+  count = count + 1
 
-print(sum)
-   # end if
-# end while
+print(something)
