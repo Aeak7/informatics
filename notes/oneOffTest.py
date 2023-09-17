@@ -1,10 +1,15 @@
-myList = [1, 3, -5, 6, 19, 10]
-something = myList[0]
-count = 1
+for x in range(0,10):
+  row = ""
+  for y in range(0,10):
+    if y == (5 - x):
+      row = row + " ! "
+    else:
+      row = row + " * "
+    
+  print(row)
 
-while (count < len(myList)):
-  if (myList[count] > something):
-    something = myList[count]
-  count = count + 1
-
-print(something)
+# 1: x == y
+# 2: x > y
+# 3: x != y
+# 4: y == (5 - x)
+# 5: y == (5 - x) or y == (13 - x) or y == (x - 5) or y == (x + 5)
