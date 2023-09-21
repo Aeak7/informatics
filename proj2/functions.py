@@ -1,40 +1,16 @@
-def printResults(songTitles):
-  # for i in range(0, len(songTitles)):
-  #   print(str(songTitles[i]) + "Amount: " + str(foundTitles[i]))
-  inlen = len(songTitles)
-  print("inlen value: " + inlen)
+def optionOne(keyInput, songTitles):
+  output = dict()
+  for i in range(0, len(songTitles)-1):
+    if keyInput.lower() in songTitles[i].lower():
+      result = songTitles[i].lower().count(keyInput.lower())
+      output[songTitles[i].strip()] = result
+  return output
+  
 
-
-def reportResults(opt, result, foundLyrics, foundTitles):
-    print("-----------------------------------------------")
-    print("ANALYSIS RESULTS" )
-    print("-----------------------------------------------")
-    if opt=="1":
-        print("Number of finds in song titles: " + len(result))
-        print("--  --  --  --  --  --  --  --  --  --  --  ---")
-        if len(result) > 0:
-            print("Song titles where found")
-            knt = 0  # Auxiliary counter.  Used for formating purposes
-            for i in result:
-                knt = knt + 1
-                print (str(knt) +"). ", i, end = ' ')  #Print song title with number in front
-    elif opt=="2":       
-        print("Number of finds in song lyrics: " + len(foundLyrics))
-        print("--  --  --  --  --  --  --  --  --  --  --  ---")
-        for j in foundLyrics:
-            print (j, end = ' ')
-            print ("==============================================")
-    else:  # both titles and lyrics.  Default if no argument or invalid option
-        print("Number of finds in song titles: " + len(foundTitles))
-        print("--  --  --  --  --  --  --  --  --  --  --  ---")
-        for i in foundTitles:
-            print (i, end = ' ')
-        print("-----------------------------------------------")           
-        print("Number of finds in song lyrics: " + len(foundLyrics))
-        print("--  --  --  --  --  --  --  --  --  --  --  ---")
-        for j in foundLyrics:
-            print (j, end = ' ')
-            print ("==============================================")
-    print ("-----------------------------------------------")
-    print (" ")
-    return()
+def optionTwo(keyInput, songLyrics, songTitles):
+  output = dict()
+  for i in range(0, len(songLyrics)-1): 
+    if keyInput.lower() in songLyrics[i].lower():
+      result = songLyrics[i].lower().count(keyInput.lower())
+      output[songTitles[i].strip()] = result
+  return output

@@ -10,11 +10,12 @@
 # Date : 09/19/2023
 # ---------------------------------------------------
 from functions import *
+import operator
 
 songTitles = []  # list to store all the songs' titles
 songLyrics = []  # list to store all the songs' lyrics
 
-inputFilename = 'proj2/songs.txt' # input file
+inputFilename = 'songs.txt' # input file
 
 # -- Given code
 # -----------------
@@ -48,15 +49,8 @@ print("Welcome to the Text Analysis Program!")
 print("This program finds the songs that a search key is found in, using the input file 'songs.txt'")
 
 keyInput = 0
-keyInputLower = 0
-result = dict()
-# titleCount = 0
-# foundTitles = []
-# foundLyrics = []
-# counter = []
 while keyInput != -1:
    keyInput = input("Please enter a search key(or -1 to exit):\n")
-   keyInputLower = keyInput.lower()
    if keyInput == str(-1):
       break;
    else:
@@ -64,43 +58,25 @@ while keyInput != -1:
       print("Please select where you would like to search (1, 2, or 3):\n1) Within a song's title\n2) Within a song's lyrics\n3) Within both the title and lyrics")
       selectionInput = input()
       if selectionInput == str(1): # search in songs title
-         print("Option 1")
-         for title in songTitles:
-            if (keyInput or keyInputLower) in title: # check if keyword is in the entire lyric
-               splitTitles = title.split() # split entire lyric into word by word
-               for word in splitTitles: # 
-                  result[title] = title.count(keyInput or keyInputLower)
-         print(result) # prints the result dict, seems to work ok, how to list titles without \n character?
-         continue;
+         results = optionOne(keyInput, songTitles)
+         for key, value in results.items():
+            print(f"{key}: Appears {value} times")
+         continue
       elif selectionInput == str(2): # search in songs lyrics
-         print("Option 2")
-         for lyric in songLyrics: # in order to tie lyrics to its title, they are same index, but then cant use this type of for loop?
-            if (keyInput or keyInputLower) in lyric:
-               splitLyrics = lyric.split()
-               for word in splitLyrics:
-                  result[lyric] = lyric.count(keyInput or keyInputLower) # should this count on lyric or word instead?
-         print(result) # prints out entire lyric with the count, how to print the titles instead of the whole lyric? no clue if this works correctly
+         results = optionTwo(keyInput, songLyrics, songTitles)
+         for key, value in results.items():
+            print(f"{key}: Appears {value} times")
+         continue
       elif selectionInput == str(3): # search both in titles and lyrics
-         print("Option 3") # unknown how to go about doing this option without fixing the others first
-         # for title in songTitles:
-         #    if (keyInput or keyInputLower) in title:
-         #       foundTitles.append(title)
-         # for lyric in songLyrics:
-         #    if (keyInput or keyInputLower) in lyric:
-         #       foundLyrics.append(lyric)
+         print("Option 3") 
+         titles = optionOne(keyInput, songTitles)
+         lyrics = optionTwo(keyInput, songLyrics, songTitles)
+         output = {x: titles.get(x, 0) + lyrics.get(x, 0) for x in set(titles).union(lyrics)}
+         for key, value in output.items():
+            print(f"{key}: Appears {value} times")
       else:
          print("Sorry this input is invalid")
          continue;
-
-
-
-# -----------------
-# Example processing of how to use the array to generate statistics
-# Note: This is to be deleted as it is not part of the assignment
-# -----------------
-# lengthTitle = 0
-# for i in range(0,count):  # going through each item of the array
-#    print("title: " + str(songTitles[i]) + " Length of Lyrics: " + str(len(songLyrics[i])))
 
 # print out exit message
 print("Thank you for using the Text Analyzer!")
