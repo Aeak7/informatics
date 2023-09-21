@@ -42,3 +42,8 @@ items.remove("cat")
 # image[row][column]
 # x==y
 # (x>y)
+
+# colors inverted
+for x in range(0, numRows - 1):
+  for y in range(0, numCols - 1):
+    raster[x][y] = maxVal - raster[x][y]
