@@ -47,3 +47,13 @@ items.remove("cat")
 for x in range(0, numRows - 1):
   for y in range(0, numCols - 1):
     raster[x][y] = maxVal - raster[x][y]
+
+# review for midterm:
+# ------------------------
+# computational thinking
+# design thinking
+# creative thinking
+# statistical thinking
+#   central tendency(avg, mode), disribution(how distributed over range), dispersion(how far data is away)
+#   correlated or not correlated variables
+# file i/o
