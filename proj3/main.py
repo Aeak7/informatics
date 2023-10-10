@@ -11,6 +11,7 @@
 # ---------------------------------------------------------------
 
 import math
+import copy
 
 # ----------------------------------------------
 # print out welcome message
@@ -79,10 +80,11 @@ print(f"lowest intensity: {maxVal}")
 # 4. Compute the standard deviation of the intensity of the image
 # stdev = sqrt(sum((values - mean)^2) / size)
 summed = 0
+rasterCopy = copy.deepcopy(raster) # copied raster so the output picture is not affected by calculations. Is a bit slow...
 for x in range(0, numRows):
   for y in range(0, numCols):
-     raster[x][y] = pow((raster[x][y] - average), 2) # do the very interior of equation first, (values - mean)^2
-     summed += raster[x][y] # slowly work out from the interior of equation, sum all the new values together
+     rasterCopy[x][y] = pow((rasterCopy[x][y] - average), 2) # do the very interior of equation first, (values - mean)^2
+     summed += rasterCopy[x][y] # slowly work out from the interior of equation, sum all the new values together
 stdev = (summed / (numRows * numCols)) ** 0.5 # divide all the summed values by the size of raster, and sqrt it
 print(f"stdev of intensity: {stdev}")
 
@@ -90,9 +92,29 @@ print(f"stdev of intensity: {stdev}")
 # Use at least two of the statistics computed above to modify the image
 # Describe your design and the purpose of your "modification" (10 points)
 # ----------------------------------------------
-# -- what effects does your modification achieve?
-# enter code here
-
+# Added an input question so each effect isn't interfering with the others
+# Similar to the copy created for the stdev so it wouldn't affect these effects
+choice = input("Please select an effect for your image (invert, darken, lighten): ")
+# inverts the colors of the image, useful to view the image from a different perspective for finding discrepancies, similar to viewing an xray image
+if choice == "invert":
+   for x in range(0, numRows - 1):
+      for y in range(0, numCols - 1):
+         raster[x][y] = maxVal - raster[x][y]
+   print(f"--> Inverted. Find image at: {filename}out.pgm")
+# subtracts the avg from the default, making the image significantly darker, perfect for spooky images
+elif choice == "darken": 
+   for x in range(0, numRows - 1):
+      for y in range(0, numCols - 1):
+         raster[x][y] = raster[x][y] - average 
+   print(f"--> Darkened. Find image at: {filename}out.pgm")
+# the opposite of darken, adds the avg, making the image much easier to see on dimmer screens, particularly useful for my terribly dim monitor
+elif choice == "lighten": 
+   for x in range(0, numRows - 1):
+      for y in range(0, numCols - 1):
+         raster[x][y] = raster[x][y] + average
+   print(f"--> Lightened. Find image at: {filename}out.pgm")
+else:
+   print("Invalid Input")
 
 # ----------------------------------------------
 # open and write to the output image file
