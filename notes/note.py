@@ -57,3 +57,16 @@ for x in range(0, numRows - 1):
 #   central tendency(avg, mode), disribution(how distributed over range), dispersion(how far data is away)
 #   correlated or not correlated variables
 # file i/o
+
+# how to determine p-value when testing null hypothesis
+#   come up with something you want to prove wrong
+#   null hypothesis typical: the thing being studied produces no effect
+# type 1 error: rejection of null with conclusion that effect exists when it doesnt (false positive)
+# type 2 error: failure to reject a false null (false negative)
+# p-value: critical value, look up z-table to find
+#   find probability that z is beyond (more-extreme) test statistic
+# ex: claim: 25% of ppl at UNL are husker fans. survey says 20% of 100 ppl are fans
+#   standard error: p=0.20, sq(p(1-p)/n) = 4%
+#   test statistic: (0.20-0.25) / 0.04 = -1.25 (tells you how far you are away from mean)
+#   hypothesis was p=0.25, z-table look up: 0.1056, is this significant? <0.1(*), <0.05(**), <0.01(***) lower is more significant
+#   0.1 value is not significant enough 
