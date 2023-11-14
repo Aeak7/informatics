@@ -79,3 +79,10 @@ for x in range(0, numRows - 1):
 #     hand-crafted knowledge, work with experts, find out how things work, capture process, implement process
 # second wave AI
 #   statistical learning, machine learning for probabilities, predict decisions
+
+# AIDA's objectives (Chulwoo Pack--Uni South Dakota State)
+#     what can we do with 20million images:
+#     Document Classification: email filtering, medical records
+#       handwritten, typed, mixed, scanned, microfilmed
+#       challenges: quality, unclear boundaries, resolution
+#     Models: Are they portable, scalable, reliable?
