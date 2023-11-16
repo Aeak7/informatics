@@ -86,3 +86,18 @@ for x in range(0, numRows - 1):
 #       handwritten, typed, mixed, scanned, microfilmed
 #       challenges: quality, unclear boundaries, resolution
 #     Models: Are they portable, scalable, reliable?
+
+# Last Exam Review:
+# ---------------------------------------------------------------------------------------------------------
+# how to make null hypothesis, how to nullify a null hypothesis, how to determine significance
+# standard file i/o, what are the benefits: transferrable data, don't have to manually do it
+#      csvs, texts, images
+# functions: modularity, extensibility, maintainability, params, args, problem decomposition
+# sql layout, queries, benefits: easy to update, store large amounts, manage
+# data visualization: pros, cons
+# data mining: find patterns that are novel, useful, valid, meaningful. 4 general tasks: clustering, classify, regress, association
+#     challenges, benefits
+# big data:
+#     problems: hubris, algorithm dynamics, explainability, scalability, outliers, biases in sampling
+# ai: 3 waves, key domains, promising areas
+# POJI: presentation, observation, justification, implication
