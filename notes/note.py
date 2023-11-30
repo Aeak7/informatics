@@ -101,3 +101,8 @@ for x in range(0, numRows - 1):
 #     problems: hubris, algorithm dynamics, explainability, scalability, outliers, biases in sampling
 # ai: 3 waves, key domains, promising areas
 # POJI: presentation, observation, justification, implication
+
+
+# shallow supervised learning: cant recognize an upsidedown dog, trouble between samoyed vs wolf
+# deep learning: weights between layers learned from the data, not set by engineers
+# deep learning vs. shallow, lawmaking/principles we should follow
